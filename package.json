@@ -58,7 +58,8 @@
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "tslib": "latest"
   },
   "optionalDependencies": {},
   "devDependencies": {
@@ -94,7 +95,7 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
-    "@gitlab:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "@gitlab:registry": "https://gitlab.com/api/v4/projects/31678815/packages/npm/",
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "tag": "edge"
@@ -102,6 +103,9 @@
   "blueprint": {
     "boilerplate": true,
     "description": "A boilerplate / instructions / tips for creating Node.js apps",
+    "github_id": "R_kgDOHOPIAw",
+    "gitlab_group_id": "11579735",
+    "gitlab_project_id": "31678815",
     "group": "npm",
     "name": "Node.js App",
     "overview": "This repository houses a starting template / boilerplate with the format that all [Megabyte Labs](https://megabyte.space) Node.js apps should use. It bundles together NestJS, and a few other recommended dependencies. It also includes Jest for Test-Driven Development (TDD). Developers are expected to **read this README** before converting this starting template into the next awesome Node.js app.",
@@ -111,10 +115,7 @@
     },
     "slug": "nodejs-app",
     "subgroup": "app",
-    "title": "Node.js App Boilerplate and Instructions",
-    "github_id": "R_kgDOHOPIAw",
-    "gitlab_project_id": "31678815",
-    "gitlab_group_id": "11579735"
+    "title": "Node.js App Boilerplate and Instructions"
   },
   "changelog": {
     "displayTypes": [
