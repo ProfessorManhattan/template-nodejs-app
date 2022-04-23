@@ -111,7 +111,10 @@
     },
     "slug": "nodejs-app",
     "subgroup": "app",
-    "title": "Node.js App Boilerplate and Instructions"
+    "title": "Node.js App Boilerplate and Instructions",
+    "github_id": "R_kgDOHOPIAw",
+    "gitlab_project_id": "31678815",
+    "gitlab_group_id": "11579735"
   },
   "changelog": {
     "displayTypes": [
