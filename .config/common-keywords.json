@@ -1,15 +1,3 @@
 {
-  "keywords": [
-    "bin",
-    "cli",
-    "commander",
-    "cosmicconfig",
-    "inquirer",
-    "manpage",
-    "mblabs",
-    "megabytelabs",
-    "nestjs",
-    "professormanhattan",
-    "washingtondc"
-  ]
+  "keywords": ["app", "mblabs", "megabytelabs", "nestjs", "professormanhattan", "washingtondc"]
 }
