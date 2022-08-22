@@ -51,14 +51,14 @@
   "typings": "dist/main.d.ts",
   "dependencies": {
     "@nestjs/common": "8.1.2",
-    "@nestjs/config": "^1.0.3",
+    "@nestjs/config": "^1.2.1",
     "@nestjs/core": "8.1.2",
-    "@nestjs/event-emitter": "^1.0.0",
-    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/event-emitter": "^1.3.1",
+    "@nestjs/platform-express": "^8.4.7",
     "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1",
+    "class-validator": "^0.13.2",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0",
+    "rxjs": "^7.5.6",
     "tslib": "latest"
   },
   "peerDependenciesMeta": {
@@ -68,26 +68,26 @@
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@nestjs/cli": "^8.0.0",
-    "@nestjs/schematics": "^8.0.0",
-    "@nestjs/testing": "^8.0.0",
+    "@commitlint/config-conventional": "latest",
+    "@nestjs/cli": "^8.2.8",
+    "@nestjs/schematics": "^8.0.11",
+    "@nestjs/testing": "^8.4.7",
     "@types/express": "^4.17.13",
-    "@types/node": "^16.11.6",
-    "@types/supertest": "^2.0.11",
+    "@types/node": "^16.11.52",
+    "@types/supertest": "^2.0.12",
     "esbuild": "^0.12.29",
-    "esbuild-node-externals": "^1.3.0",
+    "esbuild-node-externals": "^1.4.1",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
+    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
-    "prettier": "^2.4.1",
+    "prettier": "^2.7.1",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "source-map-support": "^0.5.20",
-    "supertest": "^6.1.3",
-    "tsconfig-paths": "^3.10.1",
-    "typescript": "^4.5.5",
-    "@commitlint/config-conventional": "latest",
-    "handlebars-helpers": "latest"
+    "source-map-support": "^0.5.21",
+    "supertest": "^6.2.4",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.7.4"
   },
   "keywords": [
     "app",
@@ -169,76 +169,6 @@
   "jscpd": {
     "gitignore": true,
     "threshold": 0.1
-  },
-  "lint-staged": {
-    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
-      "task fix:prettier --"
-    ],
-    "**/!(logo).(jpg|png)": [
-      "task image:compress --"
-    ],
-    "**/*": [
-      "task lint:any --"
-    ],
-    "**/*!(template).(json|webapp|webmanifest)": [
-      "task fix:json --"
-    ],
-    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
-      "task fix:prettier --"
-    ],
-    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
-      "task fix:js --",
-      "task lint:js --"
-    ],
-    "**/*.(yml|yaml)": [
-      "task fix:yaml --",
-      "task lint:yaml --"
-    ],
-    "**/*.go": [
-      "task fix:go --",
-      "task lint:go --"
-    ],
-    "**/*.md": [
-      "task fix:markdown --",
-      "task lint:spelling:markdown --"
-    ],
-    "**/*.php": [
-      "task fix:php --",
-      "task lint:php --"
-    ],
-    "**/*.py": [
-      "task fix:python --",
-      "task lint:python --"
-    ],
-    "**/*.sh": [
-      "task fix:prettier --",
-      "task fix:shell --",
-      "task lint:shell --"
-    ],
-    "**/*.toml": [
-      "task fix:toml --",
-      "task fix:prettier --",
-      "task lint:toml --"
-    ],
-    "**/*.xml": [
-      "task fix:xml --",
-      "task lint:xml --"
-    ],
-    "Dockerfile": [
-      "task fix:prettier --",
-      "task lint:docker --"
-    ],
-    "Vagrantfile": [
-      "task fix:prettier --",
-      "task lint:vagrant"
-    ],
-    "logo.(gif|jpg|jpeg|webp)": [
-      "task image:convert:logo --"
-    ],
-    "logo.png": [
-      "task image:resize -- 200 200",
-      "task image:compress --"
-    ]
   },
   "nodemonConfig": {
     "exec": "nest build && node --inspect-brk dist/main",
