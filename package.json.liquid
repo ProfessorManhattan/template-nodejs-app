@@ -1,54 +1,36 @@
 {
-  "private": false,
-  "name": "@mblabs/app-nodejs-app",
-  "version": "0.0.1",
-  "description": "A boilerplate / instructions / tips for creating Node.js apps",
-  "license": "MIT",
-  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/megabyte-labs/template-nodejs-app.git"
+  "author": "{{author.name}} <{{author.email}}> ({{link.home}})",
+  "blueprint": {
+    "repository": {
+      "github": "{{#if repository.github}}{{repository.github}}{{else}}https://github.com/{{profile.github}}/{{repository.prefix.github}}{{slug}}{{/if}}",
+      "gitlab": "{{#if repository.gitlab}}{{repository.gitlab}}{{else}}{{repository.gitlabBaseUrl}}/{{group}}/{{subgroup}}/{{slug}}{{/if}}"
+    }
   },
   "bugs": {
-    "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/templates/nodejs-app/-/issues"
+    "email": "{{email.help}}",
+    "url": "{{#if repository.gitlab}}{{repository.gitlab}}{{else}}{{repository.gitlabBaseUrl}}/{{group}}/{{subgroup}}/{{slug}}{{/if}}{{repository.location.issues.gitlab}}"
   },
-  "type": "module",
-  "main": "dist/main.js",
-  "module": "build/module/index.js",
-  "man": "man",
-  "bin": {
-    "cli_name_here": "bin/cli",
-    "common-shared": "bin/cli"
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
   },
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "scripts": {
-    "build": "bash start.sh && nest build",
-    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
-    "commit": "bash start.sh && task commit",
-    "fix": "bash start.sh && task fix",
-    "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task lint",
-    "preload": "bash start.sh && task preload",
-    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
-    "release": "bash start.sh && task publish:semantic-release",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
-    "test": "bash start.sh && [[ -z $CI ]] && task npm:test || task npm:test:ci",
-    "unpack": "bash start.sh && task npm:bundle:unpack",
-    "update": "bash start.sh && task update",
-    "vscode": "bash start.sh && task vscode"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/git-cz-emoji"
     }
   },
-  "typings": "dist/main.d.ts",
   "dependencies": {
     "@nestjs/common": "8.1.2",
     "@nestjs/config": "^1.0.3",
@@ -58,15 +40,9 @@
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0",
-    "tslib": "latest"
+    "rxjs": "^7.2.0"
   },
-  "peerDependenciesMeta": {
-    "eslint": {
-      "optional": true
-    }
-  },
-  "optionalDependencies": {},
+  "description": "{{description}}",
   "devDependencies": {
     "@commitlint/config-conventional": "latest",
     "@nestjs/cli": "^8.0.0",
@@ -89,69 +65,27 @@
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.5.5"
   },
-  "keywords": [
-    "app",
-    "mblabs",
-    "megabytelabs",
-    "nestjs",
-    "professormanhattan",
-    "washingtondc"
-  ],
   "engines": {
     "node": ">=14.18.0"
-  },
-  "publishConfig": {
-    "@gitlab:registry": "https://gitlab.com/api/v4/projects/31678815/packages/npm/",
-    "access": "public",
-    "registry": "https://registry.npmjs.org/",
-    "tag": "edge"
-  },
-  "blueprint": {
-    "boilerplate": true,
-    "description": "A boilerplate / instructions / tips for creating Node.js apps",
-    "github_id": "R_kgDOHOPIAw",
-    "gitlab_group_id": "11579735",
-    "gitlab_project_id": "31678815",
-    "group": "npm",
-    "name": "Node.js App",
-    "overview": "This repository houses a starting template / boilerplate with the format that all [Megabyte Labs](https://megabyte.space) Node.js apps should use. It bundles together NestJS, and a few other recommended dependencies. It also includes Jest for Test-Driven Development (TDD). Developers are expected to **read this README** before converting this starting template into the next awesome Node.js app.",
-    "repository": {
-      "github": "https://github.com/megabyte-labs/template-nodejs-app",
-      "gitlab": "https://gitlab.com/megabyte-labs/templates/nodejs-app"
-    },
-    "slug": "nodejs-app",
-    "subgroup": "app",
-    "title": "Node.js App Boilerplate and Instructions"
-  },
-  "changelog": {
-    "displayTypes": [
-      "feat",
-      "fix",
-      "perf",
-      "refactor",
-      "revert"
-    ],
-    "showAuthor": true
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
     "extends": "eslint-config-strict-mode"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "funding": [
     {
       "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
+      "url": "{{profile_link.opencollective}}/{{profile.opencollective}}"
     },
     {
       "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
+      "url": "{{profile_link.patreon}}/{{profile.patreon}}"
     }
   ],
+  "homepage": "{{link.home}}",
   "jest": {
     "preset": "jest-preset-ts",
     "reporters": [
@@ -172,6 +106,15 @@
     "gitignore": true,
     "threshold": 0.1
   },
+  "keywords": [
+    "app",
+    "mblabs",
+    "megabytelabs",
+    "nestjs",
+    "professormanhattan",
+    "washingtondc"
+  ],
+  "license": "{{license}}",
   "lint-staged": {
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"
@@ -242,6 +185,8 @@
       "task image:compress --"
     ]
   },
+  "main": "dist/main.js",
+  "name": "{{#if customPackageName}}{{customPackageName}}{{else}}@{{profile.npmjs_organization}}/{{repository.prefix.github}}{{slug}}{{/if}}",
   "nodemonConfig": {
     "exec": "nest build && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -271,9 +216,11 @@
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },
-  "pkg": {
-    "compress": "Brotli",
-    "outputPath": "build"
+  "optionalDependencies": {},
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    }
   },
   "pnpm": {
     "allowedVersions": {
@@ -294,13 +241,12 @@
     }
   },
   "prettier": "prettier-config-sexy-mode",
-  "recommendedPackages": {
-    "class-validator": "^0.13.1",
-    "commander": "^7.1.0",
-    "dotenv": "^8.2.0",
-    "pino": "^6.11.1",
-    "pino-pretty": "^4.5.0",
-    "update-notifier": "^5.1.0"
+  "private": false,
+  "publishConfig": {
+    "@gitlab:registry": "https://gitlab.com/api/v4/projects/{{gitlab_project_id}}/packages/npm/",
+    "access": "{{npm_publish_config_access}}",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "edge"
   },
   "release": {
     "branches": [
@@ -314,6 +260,30 @@
     ],
     "extends": "semantic-release-config"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+{{#if repository.github}}{{repository.github}}{{else}}https://github.com/{{profile.github}}/{{repository.prefix.github}}{{slug}}{{/if}}.git"
+  },
+  "scripts": {
+    "build": "bash start.sh && {{{replace scriptsBuild scriptsReplaceThis scriptsReplaceWith}}}",
+    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task lint",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
+    "release": "bash start.sh && task publish:semantic-release",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && {{{replace scriptsTest scriptsReplaceThis scriptsReplaceWith}}}",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update",
+    "vscode": "bash start.sh && task vscode"
+  },
+  "type": "{{npm_type}}",
+  "typings": "dist/main.d.ts",
+  "version": "{{version}}",
   "volta": {
     "node": "18.4.0",
     "yarn": "1.22.19"
